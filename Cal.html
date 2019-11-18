@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lets Do Calculator</title>
+
+    <style>
+
+        body {
+        background-color: tan;
+        //#9e9e9e;
+        <!--GRİ RENK-->
+        }
+
+        .box{
+        background-color : #3d4543;
+        height: 300px;
+        width: 250px;
+        border-radius: 10px;
+        position: relative;
+        top: 80px;
+        left: 40%;
+        }
+
+        .display{
+        background-color: #222;
+        width: 220px;
+        position: relative;
+        left: 15px;
+        top: 20px;
+        height: 40px;
+        }
+
+        .display input{
+        position: relative;
+        left: 2px;
+        top: 2px;
+        width: 210px;
+        height: 35px;
+        color: #000;
+        background-color : #bccd95;
+        font-size: 21px;
+        text-align: right;
+        }
+
+        .keys{
+        position: relative;
+        top: 15px;
+        }
+
+        .button{
+        width: 40px;
+        height: 30px;
+        border: none;
+        border-radius: 8px;
+        margin-left: 17px;
+        cursor: pointer;
+        border-top: 2px solid transparent;
+        font-weight: bold
+        }
+
+        .button.gray{
+        color: #fff;
+        background-color: gray;
+        }
+
+        .button.pink {
+        color: #000;
+        background-color: #ff4561;
+        }
+
+        .button.black{
+        color: #fff;
+        background-color:#303030;
+        }
+
+        p{
+        line-height: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+<br><br><br>
+
+Calculator
+
+<h1> LETS DO CALCULATOR </h1>
+
+<div class = "box" ></div>
+
+<div class = "display">
+    <input type = "text"  readonly size="18" id = "d" >
+</div>
+<!--bu ekranımız olsun-->
+
+<!--bir de tusları sırasıyla yapalım-->
+<div  class = "keys">
+    <p>
+        <input type = "button" class=" button gray " value="mrc" onclick="c('Developed---')"  >
+        <input type = "button" class=" button gray " value="m+" onclick="c('--by---')"  >
+        <input type = "button" class=" button gray " value="m-" onclick="c('--AA---')"  >
+        <input type = "button" class=" button pink " value="/" onclick="v('/')"  >
+        <!--islemler ve numarakar v metoduna temileme de c metoduna gitsin-->
+    </p>
+
+    <p>
+        <input type = "button" class=" button black " value="7" onclick="v('7')"  >
+        <input type = "button" class=" button black " value="8" onclick="v('8')"  >
+        <input type = "button" class=" button black " value="9" onclick="v('9')"  >
+        <input type = "button" class=" button pink " value="X" onclick="v('*')"  >
+        <!--islemler ve numarakar v metoduna temileme de c metoduna gitsin-->
+    </p>
+
+    <p>
+        <input type = "button" class=" button black " value="4" onclick="v('4')"  >
+        <input type = "button" class=" button black " value="5" onclick="v('5')"  >
+        <input type = "button" class=" button black " value="6" onclick="v('6')"  >
+        <input type = "button" class=" button pink " value="-" onclick="v('-')"  >
+        <!--islemler ve numarakar v metoduna temileme de c metoduna gitsin-->
+    </p>
+
+    <p>
+        <input type = "button" class=" button black " value="1" onclick="v('1')"  >
+        <input type = "button" class=" button black " value="2" onclick="v('2')"  >
+        <input type = "button" class=" button black " value="3" onclick="v('3')"  >
+        <input type = "button" class=" button pink " value="+" onclick="v('+')"  >
+        <!--islemler ve numarakar v metoduna temileme de c metoduna gitsin-->
+    </p>
+
+    <p>
+        <input type = "button" class=" button black " value="0" onclick="v('0')"  >
+        <input type = "button" class=" button black " value="." onclick="v('.')"  >
+        <input type = "button" class=" button black " value="C" onclick="c('')"  >
+        <input type = "button" class=" button pink " value="=" onclick="eq('-')"  >
+        <!--islemler ve numarakar v metoduna temileme de c metoduna gitsin-->
+    </p>
+
+    <!--makine tamam şimdi fonksiyonları yapalım-->
+
+    <script>
+
+        function c(val) {
+        document.getElementById ('d').value = val ;
+        }
+
+        function v(val) {
+        document.getElementById ('d').value += val ;
+        //her basılan butonu ekrana yapıstır , gelen değerin string olması gerek
+        }
+
+        function eq(val) {
+        try{
+        c(eval(document.getElementById ('d').value)) ;
+        }
+        catch(e){
+        c('Error ' +e);
+        }
+        //readonly olduğundan hata çıkmaz ama try catch yapmak daha iyi
+        }
+
+
+    </script>
+
+</div>
+
+</body>
+</html>
